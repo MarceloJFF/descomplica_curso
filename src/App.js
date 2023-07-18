@@ -35,6 +35,24 @@ function Pessoa(props){
     </section>
   )
 }
+const ListItem = (props) => {
+  return(
+    <li><strong>{props.label}</strong></li>
+  )
+}
+
+const  Lista = ()=>{
+  return(
+    <ul>
+      <ListItem label = "configurar projeto"/>
+      <ListItem label = "Embedar react"/>
+      <ListItem label = "Criar componentes"/>
+      <ListItem label = "Escrever testes"/>
+
+    
+    </ul>
+  )
+}
 
 function App() {
 
@@ -44,6 +62,7 @@ function App() {
       <Saudacao name = "Marcelo" idade = "30"/>
       <Pessoa idade={19}/>
       <Pessoa idade={16}/>
+      <Lista/>
       <article>
         <h2>Subtitulo</h2>
         <p>OAosklas</p>
