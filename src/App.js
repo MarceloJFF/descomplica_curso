@@ -14,21 +14,41 @@ const Saudacao = (props)=>{
 }
 
 
-function MeuBotao(){
+function MeuBotao(props){
   const label = "clique aqui 2"
   return (
-    <button type='button'>{label}</button>
+    <button type='button'>{label}</button>,<button type='submit'>{props.label}</button>
+
   )
 }
+
+
+function PessoaIdade(props){
+  return (
+    <strong>{props.label}</strong>
+  )
+}
+function Pessoa(props){
+  return (
+    <section>
+      Você é {props.idade>=18? <PessoaIdade label="de maior"/>: <PessoaIdade label =  "de menor"/>}
+    </section>
+  )
+}
+
 function App() {
+
+  const labelBtn = `clique aqui ${2}x`
   return (
     <div className="App">
       <Saudacao name = "Marcelo" idade = "30"/>
+      <Pessoa idade={19}/>
+      <Pessoa idade={16}/>
       <article>
         <h2>Subtitulo</h2>
         <p>OAosklas</p>
       </article>
-      <MeuBotao/>
+      <MeuBotao label = {labelBtn} />
     </div>
   );
 }
