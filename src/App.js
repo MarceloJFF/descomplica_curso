@@ -42,14 +42,18 @@ const ListItem = (props) => {
 }
 
 const  Lista = ()=>{
+
+  const passos = [
+    "configurar projeto",
+    "Embedar react",
+    "Criar componentes",
+    "Escrever testes"
+  ]
   return(
     <ul>
-      <ListItem label = "configurar projeto"/>
-      <ListItem label = "Embedar react"/>
-      <ListItem label = "Criar componentes"/>
-      <ListItem label = "Escrever testes"/>
-
-    
+      {passos.map((valor,index)=>{
+        return  <ListItem key={`item-${index}`}  label ={valor}/>
+      })}
     </ul>
   )
 }
