@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Voos from './Voos';
 
 const Saudacao = (props)=>{
   return (
@@ -64,9 +64,11 @@ function App() {
   return (
     <div className="App">
       <Saudacao name = "Marcelo" idade = "30"/>
+      <Voos/>
+      <Lista/>
       <Pessoa idade={19}/>
       <Pessoa idade={16}/>
-      <Lista/>
+      
       <article>
         <h2>Subtitulo</h2>
         <p>OAosklas</p>
