@@ -68,6 +68,7 @@ function Voos(){
         </div>
         
     )
+    
 }
 
 export default Voos;
