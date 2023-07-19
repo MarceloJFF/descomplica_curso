@@ -1,6 +1,8 @@
 
 import Voos from './Voos';
 import { AssentoOnibus } from './AssentoOnibus';
+import { ViaCep } from "./ViaCep"
+
 const Saudacao = (props) => {
   return (
     <h2>
@@ -62,6 +64,7 @@ export default function App() {
   const labelBtn = `clique aqui ${2}x`
   return (
     <div className="App">
+      <ViaCep/>
       <AssentoOnibus/>
       <Saudacao name="Marcelo" idade="25" />
       <Voos />

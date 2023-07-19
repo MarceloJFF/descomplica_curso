@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react"
-
 const Assento = (props)=>{
     const [ disabled,setDisabled ] = useState(false)
     function handeClick(){
