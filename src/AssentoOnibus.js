@@ -1,10 +1,18 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const Assento = (props)=>{
     const [ disabled,setDisabled ] = useState(false)
     function handeClick(){
-        setDisabled(true)
+        disabled?setDisabled(false): setDisabled(true)
     }
+    //sempre que acontece algo no ciclo de vida do componente
+    useEffect(()=>{
+        console.log("Nasceu")
+    },[]); //[] sempre q o componente nascer/ toda vez que disable dmudar
+    //disabled alterado
+    useEffect(()=>{
+        console.log("Disabled alterou para",disabled)
+    },[disabled]);
     return(
         <button className="assento"
         type="button"
