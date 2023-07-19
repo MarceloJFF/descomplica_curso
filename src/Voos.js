@@ -43,32 +43,41 @@ const voosDisponíveis = [
         }]
     }
 ]
-function ItemVoo(props){
-
-    return(
-        <div className="voo">
-            <header>
-                <h3>{props.title}</h3>
-            </header>
-        </div>
-    )
+function ItemVooDetails({ details }) {
+  return (
+    <ul>
+      {details.map(detail => {
+        return <li key={detail.id}>{detail.title}</li>;
+      })}
+    </ul>
+  );
+}
+function ItemVoo({ title, children }) {
+  return (
+    <div className="voo">
+      <header>
+        <h3>{title}</h3>
+      </header>
+      <div className="voo-details">
+        {children}
+      </div>
+    </div>
+  );
 }
 
-function Voos(){
-    
-    return(
-               
-       <div className="voos">
-        <h1>Voos</h1>
-        {
-            voosDisponíveis.map(voo =>{
-                <ItemVoo key={voo.id} title={voo.title} details={voo.details} />
-            })
-        }
-        </div>
-        
-    )
-    
+export default function Voos() {
+  return (
+    <div className="voos">
+      {voosDisponíveis.map(voo => {
+        return (
+          <ItemVoo key={voo.id} title={voo.title}>
+            <ItemVooDetails details={voo.details}/> 
+          </ItemVoo>
+        );
+      })}
+    </div>
+  );
 }
 
-export default Voos;
+
+
