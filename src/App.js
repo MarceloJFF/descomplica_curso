@@ -2,6 +2,7 @@
 import Voos from './Voos';
 import { AssentoOnibus } from './AssentoOnibus';
 import { ViaCep } from "./ViaCep"
+import { createContext } from 'react';
 
 const Saudacao = (props) => {
   return (
@@ -59,24 +60,30 @@ const Lista = () => {
   )
 }
 
+export const ThemeContext = createContext({});
+
+
+
 export default function App() {
 
   const labelBtn = `clique aqui ${2}x`
   return (
     <div className="App">
-      <ViaCep/>
-      <AssentoOnibus/>
-      <Saudacao name="Marcelo" idade="25" />
-      <Voos />
-      <Lista />
-      <Pessoa idade={19} />
-      <Pessoa idade={16} />
+      <ThemeContext.Provider value={{color:'orange'}}>
+        <ViaCep />
+        <AssentoOnibus />
+        <Saudacao name="Marcelo" idade="25" />
+        <Voos />
+        <Lista />
+        <Pessoa idade={19} />
+        <Pessoa idade={16} />
 
-      <article>
-        <h2>Subtitulo</h2>
-        <p>OAosklas</p>
-      </article>
-      <MeuBotao label={labelBtn} />
+        <article>
+          <h2>Subtitulo</h2>
+          <p>OAosklas</p>
+        </article>
+        <MeuBotao label={labelBtn} />
+      </ThemeContext.Provider>
     </div>
   );
 }

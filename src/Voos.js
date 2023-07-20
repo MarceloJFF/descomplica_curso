@@ -1,4 +1,4 @@
-
+import { ThemeContext } from "./App";
 const voosDisponíveis = [
     {
         id:'123',
@@ -43,13 +43,24 @@ const voosDisponíveis = [
         }]
     }
 ]
+
 function ItemVooDetails({ details }) {
   return (
-    <ul>
-      {details.map(detail => {
-        return <li key={detail.id}>{detail.title}</li>;
-      })}
-    </ul>
+    <ThemeContext.Consumer>
+      {
+        (value)=>{
+          return (
+          <ul>
+            {details.map((detail) => {
+              return <li key={detail.id} style={value}>{detail.title}</li>;
+            })}
+          </ul>
+        );
+          
+        }
+      }
+      
+    </ThemeContext.Consumer>
   );
 }
 function ItemVoo({ title, children }) {

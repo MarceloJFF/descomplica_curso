@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { ThemeContext } from "./App";
 const Assento = (props)=>{
     const [ disabled,setDisabled ] = useState(false)
     function handeClick(){
@@ -13,12 +14,22 @@ const Assento = (props)=>{
         console.log("Disabled alterou para",disabled)
     },[disabled]);
     return(
-        <button className="assento"
-        type="button"
-        disabled={disabled}
-        onClick= {()=> handeClick()}>
-            {disabled?'X':props.pos}
-        </button>
+        <ThemeContext.Consumer>
+            {
+                (valor)=>{
+                    return(
+                        <button className="assento"
+                            type="button"
+                            disabled={disabled}
+                            onClick= {()=> handeClick()}>
+                            {disabled?'X': <span style={valor}>{props.pos}</span>}
+                        </button>
+                    ) 
+                }
+
+            }
+            
+        </ThemeContext.Consumer>
     )
 }
 const Fileira= (props)=>{

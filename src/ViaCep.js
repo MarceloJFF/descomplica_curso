@@ -1,4 +1,4 @@
-import { useEffect , useState} from "react"
+
 
 import { useCEP} from "./hooks/useCEP"
 export const ViaCep = () => {
