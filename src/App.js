@@ -3,7 +3,7 @@ import Voos from './Voos';
 import { Fonts } from './Fonts';
 import { AssentoOnibus } from './AssentoOnibus';
 import { ViaCep } from "./ViaCep"
-import { createContext,useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 const Saudacao = (props) => {
   return (
@@ -63,29 +63,36 @@ const Lista = () => {
 
 export const ThemeContext = createContext({});
 
+const SettingsContext = createContext({})
+
+export const useSettingsContext = () => useContext(SettingsContext)
 
 
 export default function App() {
-  const[font,setFont] = useState('tahoma')
+  const [font, setFont] = useState('tahoma')
+
+
   const labelBtn = `clique aqui ${2}x`
   return (
     <div className="App">
-      <ThemeContext.Provider value={{color:'orange',font,setFont}}>
-        <Fonts/>
-        <ViaCep />
-        <AssentoOnibus />
-        <Saudacao name="Marcelo" idade="25" />
-        <Voos />
-        <Lista />
-        <Pessoa idade={19} />
-        <Pessoa idade={16} />
+      <SettingsContext.Provider value={{cepUrlBase:'https://viacep.com.br'}} >
+        <ThemeContext.Provider value={{ color: 'orange', font, setFont }}>
+          <Fonts />
+          <ViaCep />
+          <AssentoOnibus />
+          <Saudacao name="Marcelo" idade="25" />
+          <Voos />
+          <Lista />
+          <Pessoa idade={19} />
+          <Pessoa idade={16} />
 
-        <article>
-          <h2>Subtitulo</h2>
-          <p>OAosklas</p>
-        </article>
-        <MeuBotao label={labelBtn} />
-      </ThemeContext.Provider>
+          <article>
+            <h2>Subtitulo</h2>
+            <p>OAosklas</p>
+          </article>
+          <MeuBotao label={labelBtn} />
+        </ThemeContext.Provider>
+      </SettingsContext.Provider>
     </div>
   );
 }
