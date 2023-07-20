@@ -1,8 +1,9 @@
 
 import Voos from './Voos';
+import { Fonts } from './Fonts';
 import { AssentoOnibus } from './AssentoOnibus';
 import { ViaCep } from "./ViaCep"
-import { createContext } from 'react';
+import { createContext,useState } from 'react';
 
 const Saudacao = (props) => {
   return (
@@ -65,11 +66,12 @@ export const ThemeContext = createContext({});
 
 
 export default function App() {
-
+  const[font,setFont] = useState('tahoma')
   const labelBtn = `clique aqui ${2}x`
   return (
     <div className="App">
-      <ThemeContext.Provider value={{color:'orange'}}>
+      <ThemeContext.Provider value={{color:'orange',font,setFont}}>
+        <Fonts/>
         <ViaCep />
         <AssentoOnibus />
         <Saudacao name="Marcelo" idade="25" />

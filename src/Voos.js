@@ -52,7 +52,7 @@ function ItemVooDetails({ details }) {
           return (
           <ul>
             {details.map((detail) => {
-              return <li key={detail.id} style={value}>{detail.title}</li>;
+              return <li key={detail.id} style={{color:value.color,fontFamily:value.font}}>{detail.title}</li>;
             })}
           </ul>
         );

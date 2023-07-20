@@ -22,7 +22,7 @@ const Assento = (props)=>{
                             type="button"
                             disabled={disabled}
                             onClick= {()=> handeClick()}>
-                            {disabled?'X': <span style={valor}>{props.pos}</span>}
+                            {disabled?'X': <span style={{color:valor.color,fontFamily:valor.font}}>{props.pos}</span>}
                         </button>
                     ) 
                 }
